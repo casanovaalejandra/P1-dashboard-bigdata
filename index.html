@@ -1,0 +1,32 @@
+
+<!-- This code is from http://bl.ocks.org/d3byex/c40d2ebe0d4c65f569ef -->
+
+<!DOCTYPE html>
+<html>
+<head></head>
+    <body >
+        <!--<svg width = "800" height = "600 "style="background-color: #D8BFD8"</svg>-->
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script src="https://d3js.org/d3-selection.v1.min.js"></script>
+        <script type="text/javascript"><
+            console.log("Your D3 code goes here...");
+            var width = 800, height = 600;
+            var svg = d3.select('body')
+            .append('svg');
+            .attrs({width:width,height:height });
+            svg.append('line')
+                .attrs({
+                    x1:10,y1:10,
+                    x2:100,y2:200,
+                    stroke: 'blue',
+                    'stroke-width': 1.0
+                });
+                svg.append('rect')
+                .attrs({
+                    x: 10, y: 30,
+                    width
+                });
+
+        /script>
+    </body>
+</html> 
