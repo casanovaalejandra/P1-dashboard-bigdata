@@ -3,10 +3,11 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load("current", {packages:["corechart"]});
-        google.charts.setOnLoadCallback(drawChart);
-        function drawChart() {
+        google.charts.setOnLoadCallback(drawChartWords);
+        google.charts.setOnLoadCallback(drawChartKeyWords());
+        function drawChartWords() {
             var data = google.visualization.arrayToDataTable([
-                ['Task', 'Hours per Day'],
+                ['Word', 'Occurance'],
                 ['Ebola',     1560],
                 ['Flu',      10071],
                 ['Headeach',  44],
@@ -18,15 +19,45 @@
 
             var options = {
                 title: 'Word count',
+                chartArea: {width: '500px'},
                 pieHole: 0.4,
             };
 
-            var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+            var chart = new google.visualization.PieChart(document.getElementById('DrawCharts_WordCOunt_div'));
             chart.draw(data, options);
         }
+        function drawChartKeyWords() {
+            var data = google.visualization.arrayToDataTable([
+                ['Top 10 Words', 'Occurance'],
+                ['flu',     59154],
+                ['I',      53056],
+                ['diarrhea', 11384 ],
+                ['like', 11189],
+                ['Im',    9712],
+                ['just',8988]
+
+            ]);
+
+            var options = {
+                title: 'Most used words',
+                chartArea: {width: '500px'},
+                pieHole: 0.4,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('DrawCharts_KeyWOrds_div'));
+            chart.draw(data, options);
+        }
+
+
     </script>
 </head>
 <body>
-<div id="donutchart" style="width: 900px; height: 500px;"></div>
+<!--Table and divs that hold the pie charts-->
+<table class="columns">
+    <tr>
+        <td><div id="DrawCharts_WordCOunt_div" style="border: 1px solid #ccc"></div></td>
+        <td><div id="DrawCharts_KeyWOrds_div" style="border: 1px solid #ccc"></div></td>
+    </tr>
+</table>
 </body>
 </html>
